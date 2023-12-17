@@ -2,4 +2,395 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--bg-color);
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  display: flex;
+  justify-self: flex-end;
+  width: 25px;
+  height: 25px;
+  border-inline-end: 1px solid var(--menu-color);
+  border-block-start: 1px solid var(--menu-color);
+  inset-inline-end: var(--indentation);
+  inset-block-start: var(--indentation);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  display: flex;
+  justify-self: flex-start;
+  align-self: flex-end;
+  width: 25px;
+  height: 25px;
+  border-inline-start: 1px solid var(--menu-color);
+  border-block-end: 1px solid var(--menu-color);
+  inset-inline-start: var(--indentation);
+  inset-block-end: var(--indentation);
+}
+
+.header__rec {
+  position: absolute;
+  visibility: var(--visibility);
+  display: flex;
+  justify-self: flex-end;
+  color: var(--menu-color);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: var(--font-size);
+  line-height: 25px;
+  text-transform: uppercase;
+  inset-block-start: var(--indentation);
+  inset-inline-end: calc(var(--indentation) + 3px + 25px);
+}
+
+.header__rec::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  visibility: var(--visibility);
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 0px 4px 4px var(--menu-color);
+  -moz-box-shadow: 0px 0px 4px 4px var(--menu-color);
+  box-shadow: 0px 0px 4px 4px var(--menu-color);
+  color: var(--menu-color);
+  background-color: var(--menu-color);
+  inset-inline-end: -18px;
+  inset-block-start: 9px;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-areas:
+    "menu"
+    "title"
+    "text";
+  width: 100%;
+  height: 100vh;
+  padding: var(--indentation);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header__theme-menu {
+  display: flex;
+  grid-area: menu;
+  justify-content: center;
+  align-items: start;
+}
+
+.header__theme-menu-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+  list-style-type: none;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  font-family: inherit;
+  font-size: var(--font-size);
+  background-color: transparent;
+  text-transform: lowercase;
+  text-align: center;
+  width: 70px;
+  height: 26px;
+  line-height: 18px;
+  padding-inline-start: 13px;
+  padding-inline-end: 13px;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--menu-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:disabled {
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--menu-color);
+}
+
+.header__theme-menu-button_active:hover {
+  outline: 1px solid var(--menu-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 1px solid var(--menu-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--menu-color);
+  pointer-events: none;
+}
+
+.focus {
+  color: var(--title-color);
+  text-shadow: 4px 4px 0px var(--accent-color);
+  font-family: inherit;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-weight: 700;
+  line-height: 82.5%;
+  position: relative;
+  align-self: center;
+}
+
+.header__title {
+  grid-area: title;
+  margin-inline-start: calc((var(--indentation)) * -1);
+}
+
+.header__text {
+  width: clamp(355px, calc(100% / 2), 491px);
+  grid-area: text;
+  justify-self: end;
+  align-self: center;
+  font-size: var(--font-size);
+  color: var(--header-text-color);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px; /* 130% */
+  background-color: var(--accent-color);
+}
+
+.main {
+  padding-inline-start: var(--indentation);
+  padding-inline-end: var(--indentation);
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section_why {
+  grid-template-columns: 30.7vw 1fr;
+  grid-template-rows: repeat(2, min-content);
+  padding-block-start: clamp(40px, 7.81vw, 60px);
+}
+
+.section__header {
+  font-size: var(--font-size);
+  color: var(--menu-color);
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.section__header_why {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.section__paragraph {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--header-text-color);
+  font-size: var(--font-size);
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content__paragraph {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--header-text-color);
+  font-size: var(--font-size);
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.content__text {
+  color: var(--text-color);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: var(--font-size);
+  line-height: 130%;
+}
+
+.section_what {
+  padding-block-start: clamp(50px, 10.41vw, 80px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, min-content);
+}
+
+.section__header_what {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  max-width: calc((100% - var(--indentation)) / 3);
+}
+
+.section_how {
+  padding-block-start: clamp(50px, 10.41vw, 80px);
+  grid-template-columns: 30.7vw 1fr;
+  grid-template-rows: repeat(6, min-content);
+}
+
+.section__header_how {
+  grid-row-start: 1;
+  grid-row-end: 7;
+}
+
+.content__paragraph_normal {
+  font-weight: 400;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+    "title title title"
+    "sunset sunset icecream"
+    "tape books icecream"
+    "tape street street";
+  gap: var(--indentation);
+  padding-block-start: clamp(50px, 10.41vw, 80px);
+  padding-block-end: clamp(40px, 7.81vw, 60px);
+}
+
+.images__title {
+  display: inline-block;
+  grid-area: title;
+  color: var(--header-text-color);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: var(--font-size);
+  line-height: 130%;
+  background-color: var(--accent-color);
+}
+
+.images__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.images__image_sunset {
+  grid-area: sunset;
+}
+
+.images__image_icecream {
+  grid-area: icecream;
+}
+
+.images__image_tape {
+  grid-area: tape;
+}
+
+.images__image_books {
+  grid-area: books;
+}
+
+.images__image_street {
+  grid-area: street;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-inline-start: var(--indentation);
+  padding-inline-end: var(--indentation);
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0px var(--title-shadow);
+}
+
+@media (width <=375px) {
+  .header__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .images {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, min-content);
+    grid-template-areas:
+      "title"
+      "sunset"
+      "icecream"
+      "tape"
+      "books"
+      "street";
+  }
+}
+
+@media (width <=583px) {
+  .section_why {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+  }
+
+  .section_how {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, min-content);
+  }
+
+  .section__header_how {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .section__header_what {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 116px;
+  }
+
+  .header__title {
+    margin-inline-start: 0;
+  }
+}
+
+@media (width <=768px) {
+  .header__theme-menu {
+    justify-content: end;
+    align-items: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .section_what {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, min-content);
+  }
+
+  .section__header_what {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 }

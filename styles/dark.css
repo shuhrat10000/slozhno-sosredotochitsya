@@ -9,4 +9,18 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --header-text-color: #000028;
+  --text-color: #f1b2ce;
+  --title-color: #db00ff;
+  --title-shadow: #ff0070;
+  --bg-color: #000028;
+  --font-size: 18px;
+  --accent-color: #ff0070;
+  --menu-color: #ff0070;
+  --indentation: clamp(10px, 2.6041vw, 20px);
+  --visibility: visible;
+  --background-image: image-set(
+    url(../images/cover-image-dark.png) 1x,
+    url(../images/cover-image.png) 2x
+  );
 }

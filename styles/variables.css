@@ -1,4 +1,20 @@
 /*
   Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+  и их переопределение под различные устройства 
+*/ /* могу залить в гит проект, пробую внести изменения в файле*/
+:root {
+  --bg-color: #000028;
+  --text-color: #f1b2ce;
+  --title-color: #db00ff;
+  --header-text-color: #000028;
+  --font-size: 18px;
+  --accent-color: #ff0070;
+  --title-shadow: #ff0070;
+  --menu-color: #ff0070;
+  --indentation: clamp(10px, 2.6041vw, 20px);
+  --visibility: visible;
+  --background-image: image-set(
+    url(../images/cover-image-dark.png) 1x,
+    url(../images/cover-image.png) 2x
+  );
+}
