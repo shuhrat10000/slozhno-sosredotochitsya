@@ -3,6 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   background-color: var(--bg-color);
+  background-attachment: fixed;
 }
 
 .decorated-zone::before {
