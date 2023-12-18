@@ -8,9 +8,11 @@
 
 body {
   margin: 0 auto;
-  font-family: IBM Plex Mono, monospace;
+  font-family: var(--main-font);
   min-inline-size: 375px;
   max-inline-size: 1440px;
+  background-color: var(--bg-color);
+  background-attachment: fixed;
 }
 
 h1,
